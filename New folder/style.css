@@ -1,0 +1,36 @@
+ #header{
+        font-size:400%;
+        color: #87E3ED;
+        font-weight:lighter;
+        padding:0px;
+        margin: 5px 0px 0px 0px;
+ }
+
+
+.top p
+{
+color: #87E3ED;
+font-weight: bold;
+
+}
+
+body{
+    	background-color:#38393a;
+}
+
+#shape{
+		width: 200px;
+		height: 200px;
+		background-color: #DE5959;
+		display: none;
+		position: relative;
+}
+
+
+.right{
+	    position:relative;
+        left:-40px;
+        top:4.5px;
+        float:right;
+}
+

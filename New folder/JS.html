@@ -1,0 +1,133 @@
+<html>
+	<head>
+		<title>Reaction Timer</title>
+		<link rel="stylesheet" href="style.css">
+		
+			
+			
+		</style>
+	</head>
+<body>
+	
+	<div class="top">
+	<p align="center" id="header">Test your reaction time!</p>
+	<!---<p> Time Taken : <span id="timetaken"></span></p>--->
+	
+    
+	<div class="yourtime"><p>Your time: <span id="timetaken"></span></p>
+	<div class="right"><p>Best time: <span id="best"></span></p>
+	</div>
+	</div>
+	</div>
+	<div id="shape"></div>
+	<script type="text/Javascript">
+		
+
+			/// To make shape appear after certain time
+			
+			var bestTime = 0;
+			var start = new Date().getTime();
+
+			/// To add Random colors
+
+			function getRandomColor() {
+	  		var letters = '0123456789ABCDEF';
+			var color = '#';
+	    	for (var i = 0; i < 6; i++) {
+			  color += letters[Math.floor(Math.random() * 16)];
+			}
+			  return color;
+			}
+
+			function makeShapeAppear(){
+
+			/// We want randomness in the appearence of the shapes 
+
+			var top = Math.random() * 400;
+
+			var left = Math.random() * 800;
+
+			var width = (Math.random() * 200) + 100;
+
+			/// to get occasional cirle;;
+
+			if (Math.random() > 0.5) {
+
+				document.getElementById("shape").style.borderRadius = "50%";
+
+			}
+
+			else {
+
+				document.getElementById("shape").style.borderRadius = "0";
+
+			}
+
+			document.getElementById("shape").style.backgroundColor = getRandomColor();
+
+			document.getElementById("shape").style.top = top + "px";
+
+			document.getElementById("shape").style.width = width + "px";
+
+			document.getElementById("shape").style.left = left + "px";
+
+			document.getElementById("shape").style.display = "block";
+
+			start = new Date().getTime();
+
+			}
+
+
+		///function updateScore(time){
+		///times.push(time);
+		///var avgTime = 0;
+		//for(var i=0;i<times.length;i++){
+		//	avgTime+=times[i];
+		//}
+        
+		//avgTime/=times.length;
+		//avgTime=avgTime.toFixed(3);
+
+		//document.getElementById("avgTime").innerHTML="Average time: "+avgTime+"s";
+
+
+			function appearAfterDelay() {
+
+				setTimeout(makeShapeAppear, Math.random() * 2000);
+
+			}
+
+			appearAfterDelay();
+
+			document.getElementById("shape").onclick = function() {
+
+
+			document.getElementById("shape").style.display = "none";
+			var end = new Date().getTime();
+			
+
+			/// we want new time as it is clicked
+			
+
+			var timetaken = (end - start)/1000;
+			
+			document.getElementById("timetaken").innerHTML = timetaken + "s";
+			document.getElementById("timetaken").style.color = "#E845A1";
+
+			if(bestTime > timetaken || bestTime ==0){
+				bestTime = timetaken
+				document.getElementById("best").innerHTML = bestTime + "s";
+				document.getElementById("best").style.color = "#E845A1";
+			}
+			
+		
+
+			appearAfterDelay();
+			}
+		
+            
+        	// VAAAR Javascript timer(to measure how much time it takes) W3schools.........................
+
+</script>
+</body>
+</html>
